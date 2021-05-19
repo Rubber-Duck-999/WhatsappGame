@@ -20,7 +20,7 @@ class Game:
         self.people = people.People()
         self.guess  = people.Guess()
         self.current_person = 'Yoo-Jin'
-        self.group_name     = 'Phil Gladwell'
+        self.group_name     = 'Alpha'
 
     def tell_group(self, title, description):
         '''Tell each group game name
@@ -39,7 +39,7 @@ class Game:
         self.tell_group(self.guess.title, self.guess.description)
         done = False
         round = 1
-        while not done and round < 6:
+        while not done and round < len(self.people):
             person_name = self.people.get_person()
             message = 'Round {}'.format(str(round), person_name)
             self.tell_group(message, person_name)
@@ -53,7 +53,7 @@ class Game:
             self.app.send_message(guess['name'])
             round += 1
             wait = input('Wait for next round, enter')
-            #self.tell_group('Answer', guess['name'])
+            self.tell_group('Answer', guess['name'])
             logging.info('Finished round')
         self.choose_game()
 
@@ -73,17 +73,12 @@ class Game:
     def run_game(self):
         '''Set up and play'''
         try:
-            chat_open = self.app.open_chat()
-            if not chat_open:
-                chat_open = self.app.open_chat()
-                self.run_game()
-            self.current_person = self.people.group
             self.choose_game()
+            self.app.close()
         except KeyboardInterrupt:
             logging.error('Leave')
         except ConnectionRefusedError:
             logging.error('Going....')
-        self.app.close()
 
     def start(self):
         self.app.open_web_page()

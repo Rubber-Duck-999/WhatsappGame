@@ -18,43 +18,31 @@ class People:
         self.people = [
             {
                 "name": "Phil Gladwell",
-                "guess": True,
+                "guess": False,
             },
             {
                 "name": "Sammi",
-                "guess": True,
+                "guess": False,
             },
             {
                 "name": "Liz",
-                "guess": True,
+                "guess": False,
             },
             {
                 "name": "Michelle",
-                "guess": True,
-            },
-            {
-                "name": "Rich",
-                "guess": True,
+                "guess": False,
             },
             {
                 "name": "Yoo-Jin",
                 "guess": False,
             },
             {
-                "name": "Clare",
-                "guess": True,
-            },
-            {
-                "name": "Simon",
-                "guess": True,
-            },
-            {
                 "name": "Becky",
-                "guess": True,
+                "guess": False,
             },
             {
                 "name": "Dale",
-                "guess": True,
+                "guess": False,
             }
         ]
         self.group = "Alpha"
@@ -66,12 +54,14 @@ class People:
         return num
 
     def get_person(self):
-        name = self.people[5]["name"]
-        for person in range(len(self.people)):
+        loop = True
+        name = self.people[0]['name']
+        while loop:
             num = self.get_number()
             if self.people[num]["guess"] is False:
-                #self.people[num]["guess"] = True
+                self.people[num]["guess"] = True
                 name = self.people[num]["name"]
+                loop = False
         return name
 
 
@@ -105,9 +95,14 @@ class Guess:
                 "name": "South Africa",
                 "done": False
             },
+            {
+                "file": "pickaxe.jpg",
+                "name": "Pickaxe",
+                "done": False
+            }
         ]
-        self.title = 'Game of Guesses - (Yes or No)'
-        self.description = "This is the game of guessing yes or no from a another person's image, they cannot describe it. Only yes or no to questions from other users"
+        self.title = 'Guess the Picture - (Yes or No)'
+        self.description = "This is the game of guessing yes or no from a another person's picture, they cannot describe it. Only yes or no to questions from other users"
 
     def get_number(self):
         '''Random number'''
