@@ -20,7 +20,7 @@ class Game:
         self.people = people.People()
         self.guess  = people.Guess()
         self.current_person = ''
-        self.group_name     = 'Yoo-Jin'
+        self.group_name     = 'Mini Group'
 
     def tell_group(self, title, description, picture=None):
         '''Tell each group game name
@@ -52,8 +52,8 @@ class Game:
                     self.app.sleep_now()
             self.current_person = person_name
             guess = self.guess.get_guess()
-            #self.app.send_picture(guess['file'])
-            #self.app.send_message(guess['name'])
+            self.app.send_picture(guess['file'])
+            self.app.send_message(guess['name'])
             round += 1
             wait = input('Wait for next round, enter')
             self.tell_group('Answer', guess['name'], guess['file'])
