@@ -17,19 +17,11 @@ class People:
         logging.info('~ __init__()')
         self.people = [
             {
-                "name": "Phil Gladwell",
+                "name": "Kim",
                 "guess": False,
             },
             {
-                "name": "Sammi",
-                "guess": False,
-            },
-            {
-                "name": "Liz",
-                "guess": False,
-            },
-            {
-                "name": "Michelle",
+                "name": "Ola",
                 "guess": False,
             },
             {
@@ -37,15 +29,18 @@ class People:
                 "guess": False,
             },
             {
-                "name": "Becky",
+                "name": "Thirza",
                 "guess": False,
             },
             {
-                "name": "Dale",
+                "name": "Ola",
+                "guess": False,
+            },
+            {
+                "name": "Derek",
                 "guess": False,
             }
         ]
-        self.group = "Alpha"
 
     def get_number(self):
         '''Random number'''
@@ -71,33 +66,33 @@ class Guess:
         '''Constructor'''
         self.guesses = [
             {
-                "file": "cheese.jpeg",
-                "name": "Double Gloucester Cheese",
+                "file": "yorkshire_wensleydale.jpg",
+                "name": "Wensleydale Cheese",
                 "done": False
             },
             {
-                "file": "ducks.jpg",
-                "name": "Rubber Ducks",
+                "file": "peppa_pig.jpeg",
+                "name": "Peppa Pig",
                 "done": False
             },
             {
-                "file": "chicken.jpeg",
-                "name": "Live Chicken",
+                "file": "ferrari.jpg",
+                "name": "Ferrari Sports Car",
                 "done": False
             },
             {
-                "file": "porsche.jpg",
-                "name": "Porsche Sports Car",
+                "file": "botswana_map.jpg",
+                "name": "Botswana",
                 "done": False
             },
             {
-                "file": "south_africa_map.jpg",
-                "name": "South Africa",
+                "file": "clover.png",
+                "name": "Clover Leaf",
                 "done": False
             },
             {
-                "file": "pickaxe.jpg",
-                "name": "Pickaxe",
+                "file": "airplane.jpg",
+                "name": "Airplane",
                 "done": False
             }
         ]
@@ -111,7 +106,7 @@ class Guess:
         return num
 
     def get_guess(self):
-        for person in range(len(self.guesses)):
+        for index in range(len(self.guesses)):
             num = self.get_number()
             if self.guesses[num]["done"] is False:
                 self.guesses[num]["done"] = True

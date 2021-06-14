@@ -19,19 +19,22 @@ class Game:
         self.app    = whatsapp.Whatsapp()
         self.people = people.People()
         self.guess  = people.Guess()
-        self.current_person = 'Yoo-Jin'
-        self.group_name     = 'Alpha'
+        self.current_person = ''
+        self.group_name     = 'Yoo-Jin'
 
-    def tell_group(self, title, description):
+    def tell_group(self, title, description, picture=None):
         '''Tell each group game name
         and rules'''
         if self.group_name not in self.current_person:
+            logging.info('Switching to: '.format(self.group_name))
             chat_open = self.app.open_chat(self.group_name)
             while not chat_open:
                 chat_open = self.app.open_chat(self.group_name)
             self.current_person = self.group_name
         self.app.send_message(title)
         self.app.send_message(description)
+        if picture:
+            self.app.send_picture(picture)
 
     def play_guesses(self):
         '''Play this game'''
@@ -39,7 +42,7 @@ class Game:
         self.tell_group(self.guess.title, self.guess.description)
         done = False
         round = 1
-        while not done and round < len(self.people):
+        while not done and round <= len(self.people.people):
             person_name = self.people.get_person()
             message = 'Round {}'.format(str(round), person_name)
             self.tell_group(message, person_name)
@@ -49,11 +52,11 @@ class Game:
                     self.app.sleep_now()
             self.current_person = person_name
             guess = self.guess.get_guess()
-            self.app.send_picture(guess['file'])
-            self.app.send_message(guess['name'])
+            #self.app.send_picture(guess['file'])
+            #self.app.send_message(guess['name'])
             round += 1
             wait = input('Wait for next round, enter')
-            self.tell_group('Answer', guess['name'])
+            self.tell_group('Answer', guess['name'], guess['file'])
             logging.info('Finished round')
         self.choose_game()
 
@@ -84,5 +87,6 @@ class Game:
         self.app.open_web_page()
         self.run_game()
 
-game = Game()
-game.start()
+if __name__ == "__main__":
+    game = Game()
+    game.start()
