@@ -6,6 +6,7 @@ Whatsapp script
 import logging
 import whatsapp
 import people
+import guess
 
 logging.basicConfig(level=logging.INFO)
 logging.info("Starting program")
@@ -18,7 +19,7 @@ class Game:
         logging.info('__init__()')
         self.app    = whatsapp.Whatsapp()
         self.people = people.People()
-        self.guess  = people.Guess()
+        self.guess  = guess.Guess()
         self.current_person = ''
         self.group_name     = 'Mini Group'
 
