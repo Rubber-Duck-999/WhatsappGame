@@ -36,6 +36,36 @@ class Guess:
                 "file": "airplane.jpg",
                 "name": "Airplane",
                 "done": False
+            },
+            {
+                "file": "cherry.jpg",
+                "name": "Cherry",
+                "done": False
+            },
+            {
+                "file": "christina_aguilera.jpg",
+                "name": "Christina Aguilera",
+                "done": False
+            },
+            {
+                "file": "japan.jpg",
+                "name": "Japan",
+                "done": False
+            },
+            {
+                "file": "tom_hanks.jpg",
+                "name": "Cherry",
+                "done": False
+            },
+            {
+                "file": "hedge.jpg",
+                "name": "Hedge",
+                "done": False
+            },
+            {
+                "file": "fleece.jpg",
+                "name": "Fleece (Jumper)",
+                "done": False
             }
         ]
         self.title = 'Guess the Picture - (Yes or No)'

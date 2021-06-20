@@ -17,11 +17,11 @@ class People:
         logging.info('~ __init__()')
         self.people = [
             {
-                "name": "Kim",
+                "name": "Dad",
                 "guess": False,
             },
             {
-                "name": "Ola",
+                "name": "Mum",
                 "guess": False,
             },
             {
@@ -29,15 +29,7 @@ class People:
                 "guess": False,
             },
             {
-                "name": "Thirza",
-                "guess": False,
-            },
-            {
-                "name": "Ola",
-                "guess": False,
-            },
-            {
-                "name": "Derek",
+                "name": "Yoo-Jin",
                 "guess": False,
             }
         ]

@@ -21,7 +21,7 @@ class Game:
         self.people = people.People()
         self.guess  = guess.Guess()
         self.current_person = ''
-        self.group_name     = 'Mini Group'
+        self.group_name     = 'Family Chat'
 
     def tell_group(self, title, description, picture=None):
         '''Tell each group game name
@@ -43,7 +43,7 @@ class Game:
         self.tell_group(self.guess.title, self.guess.description)
         done = False
         round = 1
-        while not done and round <= len(self.people.people):
+        while not done and round <= len(self.guess.guesses):
             person_name = self.people.get_person()
             message = 'Round {}'.format(str(round), person_name)
             self.tell_group(message, person_name)
